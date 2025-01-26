@@ -1,7 +1,30 @@
 {
   "name": "foodies-app-nextjs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Jorge Hecherat",
+    "email": "hecherat@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Jorge Hecherat",
+      "email": "hecherat@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Hechprad/foodies-app-nextjs.git"
+  },
+  "keywords": [
+    "frontend",
+    "jorge hecherat",
+    "next",
+    "nextjs",
+    "react",
+    "tailwind",
+    "typescript"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
