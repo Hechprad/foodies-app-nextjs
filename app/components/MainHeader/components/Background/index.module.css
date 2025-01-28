@@ -1,0 +1,24 @@
+.background {
+  position: absolute;
+  width: 100%;
+  height: 320px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.background svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.stop1 {
+  stop-color: "#59453c";
+  stop-opacity: 1;
+}
+
+.stop2 {
+  stop-color: #8f3a09;
+  stop-opacity: 1;
+}
