@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 // import { Quicksand } from "next/font/google";
 
 import "./globals.css";
-import MainHeader from "@/app/components/MainHeader";
+import MainHeader from "@/components/MainHeader";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
