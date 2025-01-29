@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import logoImg from "@/assets/logo.png";
-import Background from "@/app/components/MainHeader/components/Background";
+import Background from "@/components/MainHeader/components/Background";
 
 import classes from "./index.module.css";
 
