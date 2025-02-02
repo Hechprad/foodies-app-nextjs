@@ -1,4 +1,4 @@
-export type Meals = {
+export type Meal = {
   creator: string;
   id: number;
   image: string;
@@ -8,5 +8,5 @@ export type Meals = {
 };
 
 export type MealsGridProps = {
-  meals: Array<Meals>;
+  meals: Array<Meal>;
 };

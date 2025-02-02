@@ -6,8 +6,8 @@ type MealsSlugPage = {
   };
 };
 
-export default function MealDetailsPage({ params }: MealsSlugPage) {
-  const meal = params.mealSlug;
+export default async function MealDetailsPage({ params }: MealsSlugPage) {
+  const meal = await params.mealSlug;
 
   return (
     <main>

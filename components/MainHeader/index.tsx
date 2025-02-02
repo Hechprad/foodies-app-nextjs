@@ -12,7 +12,7 @@ export default function MainHeader() {
     <>
       <Background />
       <header className={classes.header}>
-        <Link className={classes.logo} href="/">
+        <Link className={classes.logo} href="/" as="image">
           <Image alt="A plate with food on it" src={logoImg} priority />
           Next Level Food
         </Link>

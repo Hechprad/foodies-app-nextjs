@@ -3,10 +3,10 @@ import Image from "next/image";
 
 import classes from "./index.module.css";
 
-import { type Meals } from "@/components/MealsGrid/types";
+import { type Meal } from "@/components/MealsGrid/types";
 
 type MealItemProps = {
-  meal: Omit<Meals, "id">;
+  meal: Omit<Meal, "id">;
 };
 
 export default function MealItem({
@@ -16,7 +16,13 @@ export default function MealItem({
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
-          <Image src={image} alt={title} fill />
+          <Image
+            src={image}
+            alt={title}
+            sizes="15rem"
+            fill
+            priority={slug === "spicy-curry"}
+          />
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>
