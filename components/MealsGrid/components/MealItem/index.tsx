@@ -6,7 +6,7 @@ import classes from "./index.module.css";
 import { type Meal } from "@/components/MealsGrid/types";
 
 type MealItemProps = {
-  meal: Omit<Meal, "id">;
+  meal: Omit<Meal, "id" | "creator_email" | "instructions">;
 };
 
 export default function MealItem({
