@@ -5,7 +5,14 @@ import { redirect } from "next/navigation";
 import { Meal } from "@/components/MealsGrid/types";
 import { saveMeal } from "@/lib/meals";
 
-export async function shareMealAction(formData: FormData) {
+function isInvalidText(text?: string | null) {
+  return !text || text.trim() === "";
+}
+
+export async function shareMealAction(
+  prevState: { message: string },
+  formData: FormData
+) {
   const meal: Omit<Meal, "id" | "image" | "slug"> & {
     image: File;
   } = {
@@ -16,6 +23,21 @@ export async function shareMealAction(formData: FormData) {
     summary: formData.get("summary")?.toString() ?? "",
     title: formData.get("title")?.toString() ?? "",
   };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { image, ...mealFields } = meal;
+
+  const hasError =
+    Object.values(mealFields).some((text) => isInvalidText(text)) ||
+    !meal.creator_email.includes("@") ||
+    !meal.image ||
+    meal.image.size === 0;
+
+  if (hasError) {
+    return {
+      message: "Invalid input.",
+    };
+  }
 
   const slugPath = await saveMeal(meal);
 
