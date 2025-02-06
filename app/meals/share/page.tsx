@@ -53,7 +53,7 @@ export default function ShareMealPage() {
 
           <ImagePicker label="Your image" name="image" />
 
-          {state.message.length && <p>{state.message}</p>}
+          {state.message.length ? <p>{state.message}</p> : null}
 
           <p className={classes.actions}>
             <ShareMealFormSubmitButton />
