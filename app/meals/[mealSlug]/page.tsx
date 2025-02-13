@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -6,11 +7,32 @@ import { getMeal } from "@/lib/meals";
 
 import classes from "./page.module.css";
 
-type MealsSlugPage = Readonly<{
+export async function generateMetadata({
+  params,
+}: {
+  params: { mealSlug: string };
+}): Promise<Metadata | void> {
+  const { mealSlug } = await params;
+  const meal = getMeal(mealSlug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+    openGraph: {
+      images: [meal.image],
+    },
+  };
+}
+
+type MealSlugPage = Readonly<{
   params: Promise<{ mealSlug: string }>;
 }>;
 
-export default async function MealDetailsPage({ params }: MealsSlugPage) {
+export default async function MealDetailsPage({ params }: MealSlugPage) {
   const { mealSlug } = await params;
 
   const meal = getMeal(mealSlug);

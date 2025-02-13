@@ -1,10 +1,16 @@
+import { Suspense } from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 
 import MealsGrid from "@/components/MealsGrid";
 import { getMeals } from "@/lib/meals";
 
 import classes from "./page.module.css";
-import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "All Meals",
+  description: "Browse the delicious meals shared by our vibrant community.",
+};
 
 async function Meals() {
   const meals = await getMeals();
