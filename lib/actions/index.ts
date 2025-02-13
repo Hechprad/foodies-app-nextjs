@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 import { Meal } from "@/components/MealsGrid/types";
 import { saveMeal } from "@/lib/meals";
@@ -40,6 +41,8 @@ export async function shareMealAction(
   }
 
   const slugPath = await saveMeal(meal);
+  // NextJs has aggressive caching, so we need to revalidate the path
+  revalidatePath("/meals");
 
   redirect(`/meals/${slugPath}`);
 }
